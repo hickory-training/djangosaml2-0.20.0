@@ -56,6 +56,7 @@ from .utils import (available_idps, fail_acs_response, get_custom_setting,
                     validate_referral_url)
 
 from rest_framework_simplejwt.tokens import RefreshToken
+from datetime import datetime, timedelta
 
 try:
     from django.contrib.auth.views import LogoutView
