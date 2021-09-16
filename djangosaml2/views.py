@@ -366,7 +366,7 @@ class AssertionConsumerServiceView(View):
         if custom_redirect_url:
             response = HttpResponseRedirect(custom_redirect_url)
             response.set_cookie(
-                AUTH_COOKIE, str(refresh.access_token),
+                'Authentication', str(refresh.access_token),
                 httponly=True,
                 secure=True,
                 expires=datetime.utcnow() + settings.SIMPLE_JWT.get('ACCESS_TOKEN_LIFETIME'),
@@ -376,7 +376,7 @@ class AssertionConsumerServiceView(View):
         logger.debug('Redirecting to the RelayState: %s', relay_state)
         response = HttpResponseRedirect(relay_state)
         response.set_cookie(
-            AUTH_COOKIE, str(refresh.access_token),
+            'Authentication', str(refresh.access_token),
             httponly=True,
             secure=True,
             expires=datetime.utcnow() + settings.SIMPLE_JWT.get('ACCESS_TOKEN_LIFETIME'),
